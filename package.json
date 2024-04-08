@@ -1,0 +1,11 @@
+{
+  "name": "copy-bot",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.65.1"
+  }
+}
