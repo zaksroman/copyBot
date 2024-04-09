@@ -7,7 +7,6 @@ const getValetTxList = async (address) => {
         const result = await response.json()
 
         if (result.message !== 'OK' || !Array.isArray(result.result)) {
-            console.log(JSON.stringify(result))
             throw new Error(result)
         }
         return result.result;
@@ -31,7 +30,7 @@ setInterval(async () => {
 
     if (transactions) {
         transactions.forEach((transaction)=>{
-            if(new Date().getTime() / 1000 - transaction.timeStamp <= 60) {
+            if(new Date().getTime() / 1000 - transaction.timeStamp <= 20) {
                 console.log(new Date().getTime() / 1000 - transaction.timeStamp)
                 sendMessagesToChat(`https://etherscan.io/tx/${transaction.hash}`)
             }

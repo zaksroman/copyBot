@@ -1,4 +1,4 @@
-export const INTERVAL = 3000;
+export const INTERVAL = 20000;
 export const VALETS = [
     '0x79c610b7ebddce5a87e777785600f7e6bd6f037e'
 ];
