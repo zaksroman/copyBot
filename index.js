@@ -31,7 +31,7 @@ setInterval(async () => {
 
     if (transactions) {
         transactions.forEach((transaction)=>{
-            if(new Date().getTime() / 1000 - transaction.timeStamp <= VALETS.length) {
+            if(new Date().getTime() / 1000 - transaction.timeStamp <= VALETS.length * INTERVAL / 1000) {
                 sendMessagesToChat(`https://etherscan.io/tx/${transaction.hash}`)
             }
         })
