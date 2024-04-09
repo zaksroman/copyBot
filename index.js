@@ -5,6 +5,11 @@ const getValetTxList = async (address) => {
     try {
         const response = await fetch(`https://api.etherscan.io/api?module=account&action=txlist&address=${address}&offset=3&page=1&sort=desc&tag=latest&apikey=${ETHERSCAN_API_KEY}`);
         const result = await response.json()
+
+        if (result.message !== 'OK' || !Array.isArray(result.result)) {
+            console.log(JSON.stringify(result))
+            throw new Error(result)
+        }
         return result.result;
     } catch (e) {
         await sendMessagesToChat('Пришла ошибка')
